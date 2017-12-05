@@ -1,0 +1,38 @@
+            <div class="sidebar-scroll ui-state-active">
+				<nav>
+					<ul id="left-menu-bar" class="nav offcanvas-active">
+                        {%for item in data %}
+                        {% if item.lennum == 0 %}
+						<li><a href="{{ item.action}}" ><i class="{{ item.style_type }}"></i> <span>{{ item.menuname }}</span></a></li>
+                        {% elif item.lennum >= 1 %}
+                        <li>
+							<a href="#subPages{{ item.id }}" data-toggle="collapse" class="collapsed hasChild"><i class="{{ item.style_type }}"></i> <span>{{ item.menuname }}</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages{{ item.id }}" class="collapse subList">
+								<ul class="nav">
+                                    {% for item2 in item.sencond_menu %}
+                                    <li><a class="sub" href="{{ item2.sonaction }}" >{{ item2.sonmenuname }}</a></li>
+                                    {% endfor %}
+								</ul>
+							</div>
+						</li>
+                        {% endif %}
+                    {% endfor %}
+					</ul>
+				</nav>
+			</div>
+            <script type="text/javascript">
+                $('#left-menu-bar').find('li').each(function(){
+                    var $li = $(this);
+                    var $a = $li.find('a');
+                    var _href  = $a.attr('href').split('/')[1];
+                    var pageNames = location.href.split('/');
+                    var pageName = pageNames[3];
+                    if(_href === pageName) {
+                        $a.addClass('active');
+                        if($a.hasClass("sub")) {
+                            var $subList = $a.parents(".subList");
+                            $subList.addClass('in').prev("a").addClass('active');
+                        }
+                    }
+                })
+            </script>

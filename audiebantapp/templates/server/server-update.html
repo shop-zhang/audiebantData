@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>服务器实例更改-运维系统</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="/static/assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="/static/assets/vendor/chartist/css/chartist-custom.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="/static/assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="/static/assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/static/assets/img/favicon.png">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="/static/assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/updatepwd/"><i class="lnr lnr-cog"></i> <span>修改密码</span></a></li>
+                        <li><a href="/logout/"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
+						<!-- <li>
+							<a class="update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+                <div class="breadcrumbs">
+		            <ol class="breadcrumb">
+                      <li><a href="/dashboard/">仪表盘</a></li>
+                      <li><a href="/server/serverlist/">服务器管理</a></li>
+                      <li class="active">服务器更改</li>
+                    </ol>
+                </div>
+				<div class="container-fluid">
+					<h3 class="page-title">修改服务器</h3>
+					<div class="row">
+						<div class="col-md-12">
+							<!-- INPUTS -->
+                            <form class="form-horizontal" action="" method="post" onsubmit="return toVaild()">
+                                {% for item in datas %}
+							    <div class="panel">
+								    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">服务器名称</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="servername" name="servername" value="{{ item.servername }}"  class="{required:true}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input0" class="col-sm-2 control-label">所属托管运营商</label>
+                                            <div class="col-sm-10">
+                                              <select class="form-control" id="serversourceid" name="serversourceid">
+                                                  <option value="1" {% if item.serversourceid == 1 %} selected="select" {% endif %}>阿里云</option>
+                                                  <option value="2" {% if item.serversourceid == 2 %} selected="select" {% endif %}>ucloud云</option>
+                                                  <option value="3" {% if item.serversourceid == 3 %} selected="select" {% endif %}>自建服务器</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input1" class="col-sm-2 control-label">服务器类型</label>
+                                            <div class="col-sm-10">
+                                              <select class="form-control" id="servertype" name="servertype">
+                                                  <option value="1" {% if item.servertype == 1 %} selected="selected" {% endif %}>云机</option>
+                                                  <option value="2" {% if item.servertype == 2 %} selected="selected" {% endif %}>物理机</option>
+                                                  <option value="3" {% if item.servertype == 3 %} selected="selected" {% endif %}>自建虚拟机</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input2" class="col-sm-2 control-label" >所属业务</label>
+                                            <div class="col-sm-10">
+                                              <select class="form-control" id="servergroupid" name="servergroupid">
+                                                  {% for rows in info %}
+                                                  <option value="{{ rows.servergroupid }}" {% if rows.servergroupid == item.servergroupid %} selected="selected" {% endif %}>{{ rows.servergroupname }}</option>
+                                                  {% endfor %}
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input3" class="col-sm-2 control-label">服务器功能分类</label>
+                                            <div class="col-sm-10">
+                                              <select class="form-control" id="serveruseid" name="serveruseid">
+                                                  {% for item1 in data %}
+                                                  <option value="{{ item1.serveruseid }}" {% if item1.serveruseid == item.serveruseid %} selected="selected" {% endif %}>{{ item1.serverusename }}</option>
+                                                  {% endfor %}
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >外网ip</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="outernet" name="outernet" class="{required:true}" value="{{ item.outernet }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >内网ip</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="innernet" name="innernet" class="{required:true}" value="{{ item.innernet }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">是用内网还是外网</label>
+                                            <div class="col-sm-10">
+                                                <label class="radio-inline">
+                                                    <input type="radio"  value="1" name="useouterinner" id="useouterinner" {% if item.useouterinner == 1 %} checked="checked" {% endif %}>内网
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio"  value="2" name="useouterinner" id="useouterinner" {% if item.useouterinner == 2 %} checked="checked" {% endif %}> 外网
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio"  value="3" name="useouterinner" id="useouterinner" {% if item.useouterinner == 3 %} checked="checked" {% endif %}> 均可使用
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >登录账号</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="serverloginuser" name="serverloginuser" class="{required:true}"  value="{{ item.serverloginuser }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-2 control-label" >登录密码</label>
+                                            <div class="col-sm-10">
+                                              <input type="password" class="form-control" id="serverloginpwd" name="serverloginpwd" class="{required:true}"  value="{{ item.serverloginpwd }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >ssh登陆端口</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="sshport" name="sshport" class="{required:true}" value="{{ item.sshport }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >hostname</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="hostname" name="hostname" class="{required:true}" value="{{ item.hostname }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >cpu数量</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="cpunum" name="cpunum" class="{required:true}" value="{{ item.cpunum }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >内存大小</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="memorynum" name="memorynum" class="{required:true}" value="{{ item.memorynum }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label" >系统版本</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="systemname" name="systemname" class="{required:true}" value="{{ item.systemname }}">
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="serverid" value="{{item.serverid}}" />
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">更改服务器</button>
+                                            </div>
+                                        </div>
+                                    </div>
+							    </div>
+                            {% endfor %}
+                            </form>
+							<!-- END INPUTS -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; 2017 <a href="#" target="_blank">Theme I Need</a>. All Rights Reserved. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="/static/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/static/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/static/assets/scripts/klorofil-common.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#sidebar-nav").load('/left/');
+        })
+
+        function toVaild(){
+            var servername = document.getElementById("servername").value;
+            var outernet = document.getElementById("outernet").value;
+            var innernet = document.getElementById("innernet").value;
+            var serverloginuser = document.getElementById("serverloginuser").value;
+            var serverloginpwd = document.getElementById("serverloginpwd").value;
+            var sshport = document.getElementById("sshport").value;
+
+            if(servername == '' || outernet == '' || innernet == '' || serverloginuser == '' ||  serverloginpwd == '' || sshport == '' ){
+     	        if(servername == '' ){
+     		        alert("服务器名称不能为空，全局唯一");
+        	        return false;
+                }
+                if(serverloginuser == '' ){
+     		        alert("服务器登录名不能为空");
+        	        return false;
+                }
+                if(serverloginpwd == '' ){
+     		        alert("服务器登录密码不能为空");
+        	        return false;
+                }
+                if(sshport == '' ){
+     		        alert("服务器登录端口不能为空");
+        	        return false;
+                }
+     	        if(outernet == '' &&  innernet == ''){
+     		        alert("内网IP或者外网IP不能全部为空，必须有一个值非空");
+        	        return false;
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

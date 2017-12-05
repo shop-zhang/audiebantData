@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>MySQL更新审核-sql审核结果</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="/static/assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/assets/vendor/linearicons/style.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="/static/assets/css/main.css">
+    <link rel="stylesheet" href="/static/assets/css/jquery.dataTables.min.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="/static/assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/static/assets/img/favicon.png">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="/static/assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/updatepwd/"><i class="lnr lnr-cog"></i> <span>修改密码</span></a></li>
+                        <li><a href="/logout/"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
+						<!-- <li>
+							<a class="update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+                    <div class="breadcrumbs">
+                        <ol class="breadcrumb">
+                          <li><a href="/dashboard/">仪表盘</a></li>
+                          <li><a href="/mysqlsql/mysqllist/">MySQL更新审核</a></li>
+                          <li><a>sql审核结果</a></li>
+                        </ol>
+                    </div>
+					</div>
+					<!-- END OVERVIEW -->
+					<div class="row">
+						<div class="col-md-12">
+							<!-- BORDERED TABLE -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Inception的check结果</h3>
+								</div>
+								<div class="panel-body">
+									<table class="table table-bordered" id="listpage">
+										<thead>
+											<tr>
+                                                <th>检查ID</th>
+                                                <th>执行步骤</th>
+												<th>错误级别</th>
+												<th>检查状态</th>
+                                                <th>错误信息</th>
+                                                <th>检查sql</th>
+                                                <th>影响条数</th>
+                                                <th>提交时间</th>
+											</tr>
+										</thead>
+										<tbody>
+                                        {% for item in data %}
+											<tr>
+                                                <td>{{item.checkid}}</td>
+												<td>{{item.checkstage}}</td>
+                                                {% if item.errlevel == '0' %}
+                                                    <td><span class="label label-success">正常</span></td>
+										        {% elif item.errlevel == '1' %}
+                                                    <td><span class="label label-warning">警告,不影响执行</span></td>
+										        {% elif item.errlevel == '2' %}
+                                                    <td><span class="label label-danger">严重错误,必须修改</span></td>
+										        {% endif %}
+                                                <td>{{item.stagestatus}}</td>
+                                                <td>{{item.errormessge}}</td>
+                                                <td>{{item.checksql}}</td>
+                                                <td>{{item.affectedrow}}</td>
+                                                <td>{{item.submitdatetime}}</td>
+											</tr>
+                                            {% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- END BORDERED TABLE -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="/static/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/assets/scripts/jquery.dataTables.min.js"></script>
+	<script src="/static/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/static/assets/scripts/klorofil-common.js"></script>
+    <script LANGUAGE=javascript>
+        $(function(){
+            $("#sidebar-nav").load('/left/');
+            $('#listpage').DataTable({
+                "bLengthChange": false,
+                "bFilter": false,
+                "bInfo": true,
+                "sPaginationType": "full_numbers",
+                "oLanguage" : {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "sZeroRecords": "没有检索到数据",
+                    "sSearch": "名称:",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "前一页",
+                        "sNext": "后一页",
+                        "sLast": "尾页"
+                    }
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>

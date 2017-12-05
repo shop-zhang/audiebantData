@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>数据库修改-运维系统</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="/static/assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="/static/assets/vendor/chartist/css/chartist-custom.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="/static/assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="/static/assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/static/assets/img/favicon.png">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="/static/assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/updatepwd/"><i class="lnr lnr-cog"></i> <span>修改密码</span></a></li>
+                        <li><a href="/logout/"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
+						<!-- <li>
+							<a class="update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+                <div class="breadcrumbs">
+		            <ol class="breadcrumb">
+                      <li><a href="/dashboard/">仪表盘</a></li>
+                      <li><a href="/dbserver/dbserverlist/">数据库列表</a></li>
+                      <li class="active">数据库修改</li>
+                    </ol>
+                </div>
+				<div class="container-fluid">
+					<h3 class="page-title">修改数据库</h3>
+					<div class="row">
+						<div class="col-md-12">
+							<!-- INPUTS -->
+                            <form class="form-horizontal" action="" method="post" onsubmit="return toVaild()">
+                            {% for rows in datas %}
+							    <div class="panel">
+								    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="input" class="col-sm-2 control-label">db名称</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="dbname" name="dbname" value="{{ rows.dbname }}"  class="{required:true}">
+                                            </div>
+                                        </div>
+                                         <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">所属服务器</label>
+                                            <div class="col-sm-10">
+                                              <select class="form-control" id="serverid" name="serverid">
+                                                  {% for item in data %}
+                                                  <option value="{{item.serverid}}" >{{item.servername}}</option>
+                                                  {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">db类型</label>
+                                            <div class="col-sm-10">
+                                              <select class="form-control" id="dbtype" name="dbtype">
+                                                  <option value="1" >mysql</option>
+                                                  <option value="2" >redis</option>
+                                                  <option value="3" >mongodb</option>
+                                                  <option value="4" >mysql</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">集群角色</label>
+                                            <div class="col-sm-10">
+                                                <label class="radio-inline">
+                                                    <input type="radio"  value="1" name="dbservertype" id="dbservertype" checked="checked"> master
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio"  value="2" name="dbservertype" id="dbservertype"> slave
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input" class="col-sm-2 control-label">db端口</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="dbport" name="dbport" value="{{ rows.dbport }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">数据库账号</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="dbuser" name="dbuser" value="{{ rows.dbuser }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">数据库密码</label>
+                                            <div class="col-sm-10">
+                                              <input type="password" class="form-control" id="dbpassword" name="dbpassword" value="{{ rows.dbpassword }}">
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="dbid" value="{{rows.dbid}}" />
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-primary" name="button" id="button">修改数据库</button>
+                                            </div>
+                                        </div>
+                                    </div>
+							    </div>
+                            {% endfor %}
+                            </form>
+							<!-- END INPUTS -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; 2017 <a href="#" target="_blank">Theme I Need</a>. All Rights Reserved. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="/static/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/static/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/static/assets/scripts/klorofil-common.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#sidebar-nav").load('/left/');
+        })
+
+        function toVaild(){
+            var dbname_val = document.getElementById("dbname").value;
+            var dbport_val = document.getElementById("dbport").value;
+            var dbuser_val = document.getElementById("dbuser").value;
+            var dbpassword_val = document.getElementById("dbpassword").value;
+
+            if( dbname_val == '' || dbport_val == '' ) {
+
+                if (dbname_val == '') {
+                    alert("数据库名称为空，不进行提交");
+                    return false;
+                }
+                if (dbport_val == '') {
+                    alert("数据库端口为空，不进行提交");
+                    return false;
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

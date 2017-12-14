@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d60ce5f-aed7-4ff5-9c0e-ad189b8d1056" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiebantapp/model/cron.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiebantapp/model/mysqlbackup_model.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiebantData/settings.py" afterPath="$PROJECT_DIR$/audiebantData/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiebantapp/urls.py" afterPath="$PROJECT_DIR$/audiebantapp/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-    </list>
+    <list default="true" id="8d60ce5f-aed7-4ff5-9c0e-ad189b8d1056" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -13,6 +13,7 @@ from audiebantapp .views import dbserver_view
 from audiebantapp .views import mysqlincedata_view
 from audiebantapp .views import monitor_view
 from audiebantapp .views import mysqladvisor_view
+from audiebantapp .views import mysqlbackup_view
 
 urlpatterns = [
     url(r'^login/$', login_view.login, name='login'),
@@ -75,6 +76,7 @@ urlpatterns = [
     url(r'^mysqlsql/sqlexecbyinception$', mysqlincedata_view.sqlexecbyinception, name='sqlexecbyinception'),
     url(r'^mysqlsql/sqlexecnoince$', mysqlincedata_view.sqlexecnoince, name='sqlexecnoince'),
     url(r'^mysqlsql/sqltaskdelete$', mysqlincedata_view.sqltaskdelete, name='sqltaskdelete'),
+    url(r'^mysql/mysqlbackup', mysqlbackup_view.mysqlbackuplist, name='mysqlbackup'),
 
     url(r'^mysqlindex/sqlauditinglist/', mysqladvisor_view.sqlauditinglist, name='sqlauditinglist'),
     url(r'^mysqlindex/sqlauditingadd/', mysqladvisor_view.sqlauditingadd, name='sqlauditingadd'),

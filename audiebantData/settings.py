@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-#    'django_crontab',
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,6 +72,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'audiebantData.wsgi.application'
 
+CRONJOBS = [
+    ('*/1 * * * *', 'audiebantapp.model.cron.redis_monitor_job')
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -133,10 +136,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
-#CRONJOBS = [
-#    ('*/5 * * * *', 'django.core.management.call_command',['my_scheduled_job']),
-#    ('0   0 1 * *', 'audiebantData.audiebantapp.cron.my_scheduled_job', '> /tmp/last_scheduled_job.log')
-#    ('0   0 * * 0', 'django.core.management.call_command', ['dumpdata', 'auth'], {'indent': 4}, '> /home/john/backups/last_sunday_auth_backup.json')
-#]

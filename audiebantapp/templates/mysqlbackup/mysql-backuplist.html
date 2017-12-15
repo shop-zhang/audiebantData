@@ -77,38 +77,36 @@
 											<tr>
 												<th>数据库名称</th>
 												<th>备份范围</th>
+                                                <th>备份时常(秒)</th>
 												<th>备份方式</th>
-												<th>备份时常(分钟)</th>
                                                 <th>备份大小</th>
                                                 <th>备份位置</th>
                                                 <th>备份是否完成</th>
                                                 <th>压缩文件md5值</th>
                                                 <th>备份存储位置</th>
-                                                <th>备份还原需要时常(分钟)</th>
+                                                <th>备份还原需要时常(秒)</th>
 											</tr>
 										</thead>
 										<tbody>
                                             {% for item in data %}
 											<tr>
 												<td>{{item.dbname}}</td>
-												{% if item.backstatus == 1 %}
+												{% if item.backstatus == '1' %}
                                                     <td align="center" class="btn btn-success">全量备份</td>
-                                                {% elif item.backstatus == 2 %}
+                                                {% elif item.backstatus == '2' %}
                                                     <td align="center" class="btn btn-danger">增量备份</td>
                                                 {% endif %}
-
+                                                <td>{{item.backuptime}}</td>
                                                 {% if item.backtype == 1 %}
                                                     <td align="center" class="btn btn-success">逻辑备份</td>
                                                 {% elif item.backtype == 2  %}
                                                     <td align="center" class="btn btn-danger">物理备份</td>
                                                 {% endif %}
-                                                <td>{{item.backuptime}}</td>
                                                 <td>{{item.backupsize}}</td>
-                                                <td>{{item.backupmd5sum}}</td>
-                                                <td>{{item.backupstoreurl}}</td>
                                                 <td>{{item.storeserverurl}}</td>
                                                 <td>{{item.iscomplate}}</td>
-                                                <td>{{item.iscomplate}}</td>
+                                                <td>{{item.backupmd5sum}}</td>
+                                                <td>{{item.storeserverurl}}</td>
                                                 <td>{{item.backup_recovery_time}}</td>
 											</tr>
                                             {% endfor %}

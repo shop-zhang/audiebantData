@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d60ce5f-aed7-4ff5-9c0e-ad189b8d1056" name="Default" comment="" />
+    <list default="true" id="8d60ce5f-aed7-4ff5-9c0e-ad189b8d1056" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiebantapp/model/mysqlincedata_model.py" afterPath="$PROJECT_DIR$/audiebantapp/model/mysqlincedata_model.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html" afterPath="$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py" afterPath="$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,91 +31,85 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monitor_model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiebantapp/model/monitor_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1508749039000" expanded="true" signature="357:646" ph="select a.db_... redis_status" />
-                <marker date="1508749039000" expanded="true" signature="1238:1512" ph="select a.db_... redis_status" />
-                <marker date="1508749039000" expanded="true" signature="2209:2696" ph="select a.id,... id" />
-                <marker date="1508749039000" expanded="true" signature="2407:2534" ph="select id,to... redis_status_history" />
-                <marker date="1508749039000" expanded="true" signature="2544:2679" ph="select id+1 redis_status_history" />
-                <marker date="1508749039000" expanded="true" signature="3235:3404" ph="select id,us... redis_status_history" />
-                <marker date="1508749039000" expanded="true" signature="3914:4203" ph="select a.db_... mysql_status" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysqladvisor_model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiebantapp/model/mysqladvisor_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#89#99#0" expanded="true" />
-                <marker date="1508726028000" expanded="true" signature="640:1050" ph="select a.id,... sql_advice_info" />
-                <marker date="1508726028000" expanded="true" signature="1086:1561" ph="select a.id,... sql_advice_info" />
-                <marker date="1508726028000" expanded="true" signature="2441:2626" ph="select db_id... db_server_info" />
-                <marker date="1508726028000" expanded="true" signature="3176:3257" ph="insert into sql_advice_info" />
-                <marker date="1508726028000" expanded="true" signature="3519:3929" ph="select a.id,... sql_advice_info" />
-                <marker date="1508726028000" expanded="true" signature="4773:4907" ph="select a.id,... sql_advice_info" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiebantapp/views/menu_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="redis_monitor_job.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiebantapp/cron/redis_monitor_job.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <element signature="e#18#33#0" expanded="true" />
-                <marker date="1506502092000" expanded="true" signature="85:305" ph="select db_id... db_server_info" />
-                <marker date="1506502092000" expanded="true" signature="2418:2744" ph="insert into redis_status_history... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiebantData/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/audiebantData/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dbserver_view.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiebantapp/views/dbserver_view.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysqlbackup_model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiebantapp/model/mysqlbackup_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="28" />
+              <folding>
+                <marker date="1513076159020" expanded="true" signature="562:987" ph="select a.db_... db_backup_info" />
+                <marker date="1513076159020" expanded="true" signature="856:941" ph="select max(b... db_backup_info" />
+                <marker date="1513076159020" expanded="true" signature="1023:1523" ph="select a.db_... db_backup_info" />
+                <marker date="1513076159020" expanded="true" signature="1317:1402" ph="select max(b... db_backup_info" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysql-backuplist.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="106" column="76" lean-forward="false" selection-start-line="106" selection-start-column="76" selection-end-line="106" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysqlincedata_model.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/audiebantapp/model/mysqlincedata_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6">
+              <caret line="272" column="78" lean-forward="false" selection-start-line="272" selection-start-column="78" selection-end-line="272" selection-end-column="78" />
+              <folding>
+                <marker date="1513309546965" expanded="true" signature="558:889" ph="select a.db_... db_server_info" />
+                <marker date="1513309546965" expanded="true" signature="925:1322" ph="select a.db_... db_server_info" />
+                <marker date="1513309546965" expanded="true" signature="2148:2300" ph="select (sele... " />
+                <marker date="1513309546965" expanded="true" signature="2156:2215" ph="select count... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="2228:2287" ph="select count... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="2337:2519" ph="select (sele... " />
+                <marker date="1513309546965" expanded="true" signature="2345:2417" ph="select count... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="2432:2504" ph="select count... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="2924:3117" ph="select if(b.... db_server_info" />
+                <marker date="1513309546965" expanded="true" signature="3439:3527" ph="insert into sql_update_task_info... " />
+                <marker date="1513309546965" expanded="true" signature="4686:4839" ph="insert into sql_check_task_info... " />
+                <marker date="1513309546965" expanded="true" signature="5252:5667" ph="select a.tas... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="5703:6198" ph="select a.tas... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="6961:7376" ph="select a.tas... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="7412:7906" ph="select a.tas... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="8616:8682" ph="select task_... sql_update_task_info" />
+                <marker date="1513309546965" expanded="true" signature="9059:9250" ph="select task_... sql_check_task_info" />
+                <marker date="1513309546965" expanded="true" signature="9962:10171" ph="select task_... sql_update_task_result" />
+                <marker date="1513309546965" expanded="true" signature="11310:11358" ph="delete from " />
+                <marker date="1513309546965" expanded="true" signature="11532:11725" ph="select if(b.... db_server_info" />
+                <marker date="1513309546965" expanded="true" signature="11990:12051" ph="update sql_u... " />
+                <marker date="1513309546965" expanded="true" signature="13194:13347" ph="insert into sql_check_task_info... " />
+                <marker date="1513309546965" expanded="true" signature="13762:14012" ph="select if(b.... db_server_info" />
+                <marker date="1513309546965" expanded="true" signature="15263:15437" ph="insert into sql_update_task_result... " />
+                <marker date="1513309546965" expanded="true" signature="15771:15869" ph="update sql_u... " />
+                <marker date="1513309546965" expanded="true" signature="16139:16389" ph="select if(b.... db_server_info" />
+                <marker date="1513309546965" expanded="true" signature="17146:17244" ph="update sql_u... " />
+                <marker date="1513309546965" expanded="true" signature="17425:17543" ph="insert into sql_update_task_result" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysqlbackup_view.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -127,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>t</find>
       <find>tftiancai</find>
       <find>tftiancai.</find>
       <find>tftiancai.c</find>
@@ -147,6 +145,15 @@
       <find>zhangsh</find>
       <find>zhangs</find>
       <find>zhangsp</find>
+      <find>tt</find>
+      <find>ttftc</find>
+      <find>ttft</find>
+      <find>ttf</find>
+      <find>t</find>
+      <find>tftc</find>
+      <find>tft</find>
+      <find>tf</find>
+      <find>tcjr</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -159,14 +166,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/audiebantapp/urls.py" />
-        <option value="$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py" />
         <option value="$PROJECT_DIR$/audiebantapp/model/mysqlbackup_model.py" />
-        <option value="$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html" />
         <option value="$PROJECT_DIR$/audiebantapp/cron/mysql_monitor_job.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/audiebantapp/cron/cron.py" />
         <option value="$PROJECT_DIR$/audiebantapp/cron.py" />
         <option value="$PROJECT_DIR$/audiebantData/settings.py" />
+        <option value="$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py" />
+        <option value="$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html" />
+        <option value="$PROJECT_DIR$/audiebantapp/model/mysqlincedata_model.py" />
       </list>
     </option>
   </component>
@@ -196,8 +204,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,8 +230,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audiebantapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -423,16 +485,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1238" height="777" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27759197" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28177258" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -441,7 +505,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -474,6 +537,55 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/audiebantapp/cron/mysql_monitor_job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
+          <folding>
+            <element signature="e#18#33#0" expanded="true" />
+            <marker date="1506502092000" expanded="true" signature="85:305" ph="select db_id... db_server_info" />
+            <marker date="1506502092000" expanded="true" signature="2418:2744" ph="insert into redis_status_history... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/views/dbserver_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/model/mysqlbackup_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <marker date="1513076159020" expanded="true" signature="562:987" ph="select a.db_... db_backup_info" />
+            <marker date="1513076159020" expanded="true" signature="856:941" ph="select max(b... db_backup_info" />
+            <marker date="1513076159020" expanded="true" signature="1023:1523" ph="select a.db_... db_backup_info" />
+            <marker date="1513076159020" expanded="true" signature="1317:1402" ph="select max(b... db_backup_info" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="106" column="76" lean-forward="false" selection-start-line="106" selection-start-column="76" selection-end-line="106" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/audiebantapp/cron/mysql_monitor_job.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -542,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -558,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -630,7 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,7 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,27 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantapp/model/mysqlbackup_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="43" column="52" lean-forward="false" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="45" lean-forward="false" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="101" column="68" lean-forward="false" selection-start-line="101" selection-start-column="68" selection-end-line="101" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/audiebantapp/cron/dingdinng_message.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -784,19 +871,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantapp/views/dbserver_view.py">
+    <entry file="file://$PROJECT_DIR$/audiebantapp/model/cron.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="366">
+          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantData/urls.py">
+    <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,15 +897,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantapp/cron/mysql_monitor_job.py">
+    <entry file="file://$PROJECT_DIR$/audiebantapp/views/menu_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantData/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="74" column="12" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantData/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
-          <folding>
-            <element signature="e#18#33#0" expanded="true" />
-            <marker date="1506502092000" expanded="true" signature="85:305" ph="select db_id... db_server_info" />
-            <marker date="1506502092000" expanded="true" signature="2418:2744" ph="insert into redis_status_history... " />
-          </folding>
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -856,33 +951,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantapp/views/menu_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantapp/model/cron.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/audiebantapp/cron/mysql_monitor_job.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
+          <folding>
+            <element signature="e#18#33#0" expanded="true" />
+            <marker date="1506502092000" expanded="true" signature="85:305" ph="select db_id... db_server_info" />
+            <marker date="1506502092000" expanded="true" signature="2418:2744" ph="insert into redis_status_history... " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiebantData/settings.py">
+    <entry file="file://$PROJECT_DIR$/audiebantapp/views/dbserver_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state relative-caret-position="90">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/model/mysqlbackup_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <marker date="1513076159020" expanded="true" signature="562:987" ph="select a.db_... db_backup_info" />
+            <marker date="1513076159020" expanded="true" signature="856:941" ph="select max(b... db_backup_info" />
+            <marker date="1513076159020" expanded="true" signature="1023:1523" ph="select a.db_... db_backup_info" />
+            <marker date="1513076159020" expanded="true" signature="1317:1402" ph="select max(b... db_backup_info" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/views/mysqlbackup_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/templates/mysqlbackup/mysql-backuplist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="106" column="76" lean-forward="false" selection-start-line="106" selection-start-column="76" selection-end-line="106" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiebantapp/model/mysqlincedata_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="272" column="78" lean-forward="false" selection-start-line="272" selection-start-column="78" selection-end-line="272" selection-end-column="78" />
+          <folding>
+            <marker date="1513309546965" expanded="true" signature="558:889" ph="select a.db_... db_server_info" />
+            <marker date="1513309546965" expanded="true" signature="925:1322" ph="select a.db_... db_server_info" />
+            <marker date="1513309546965" expanded="true" signature="2148:2300" ph="select (sele... " />
+            <marker date="1513309546965" expanded="true" signature="2156:2215" ph="select count... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="2228:2287" ph="select count... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="2337:2519" ph="select (sele... " />
+            <marker date="1513309546965" expanded="true" signature="2345:2417" ph="select count... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="2432:2504" ph="select count... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="2924:3117" ph="select if(b.... db_server_info" />
+            <marker date="1513309546965" expanded="true" signature="3439:3527" ph="insert into sql_update_task_info... " />
+            <marker date="1513309546965" expanded="true" signature="4686:4839" ph="insert into sql_check_task_info... " />
+            <marker date="1513309546965" expanded="true" signature="5252:5667" ph="select a.tas... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="5703:6198" ph="select a.tas... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="6961:7376" ph="select a.tas... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="7412:7906" ph="select a.tas... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="8616:8682" ph="select task_... sql_update_task_info" />
+            <marker date="1513309546965" expanded="true" signature="9059:9250" ph="select task_... sql_check_task_info" />
+            <marker date="1513309546965" expanded="true" signature="9962:10171" ph="select task_... sql_update_task_result" />
+            <marker date="1513309546965" expanded="true" signature="11310:11358" ph="delete from " />
+            <marker date="1513309546965" expanded="true" signature="11532:11725" ph="select if(b.... db_server_info" />
+            <marker date="1513309546965" expanded="true" signature="11990:12051" ph="update sql_u... " />
+            <marker date="1513309546965" expanded="true" signature="13194:13347" ph="insert into sql_check_task_info... " />
+            <marker date="1513309546965" expanded="true" signature="13762:14012" ph="select if(b.... db_server_info" />
+            <marker date="1513309546965" expanded="true" signature="15263:15437" ph="insert into sql_update_task_result... " />
+            <marker date="1513309546965" expanded="true" signature="15771:15869" ph="update sql_u... " />
+            <marker date="1513309546965" expanded="true" signature="16139:16389" ph="select if(b.... db_server_info" />
+            <marker date="1513309546965" expanded="true" signature="17146:17244" ph="update sql_u... " />
+            <marker date="1513309546965" expanded="true" signature="17425:17543" ph="insert into sql_update_task_result" />
+          </folding>
         </state>
       </provider>
     </entry>

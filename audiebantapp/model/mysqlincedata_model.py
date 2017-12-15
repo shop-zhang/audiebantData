@@ -93,7 +93,7 @@ class MysqlIncedata(object):
 
         nIncepsql = nIncepsql.encode('utf-8').decode('latin-1')
 
-        conn = MySQLdb.connect(host="127.0.0.1", user="root", passwd="tcjrZXC123", db="Biz", port=6669)
+        conn = MySQLdb.connect(host="127.0.0.1", user="root", passwd="12345678", db="Biz", port=6669)
         cursor = conn.cursor()
         cursor.execute(nIncepsql)
         result = cursor.fetchall()
@@ -270,7 +270,7 @@ class MysqlIncedata(object):
 
         nIncepsql = nIncepsql.encode('utf-8').decode('latin-1')
 
-        conn = MySQLdb.connect(host="127.0.0.1", user="root", passwd="tcjrZXC123", db="Biz", port=6669)
+        conn = MySQLdb.connect(host="127.0.0.1", user="root", passwd="12345678", db="Biz", port=6669)
         cursor = conn.cursor()
         cursor.execute(nIncepsql)
         result = cursor.fetchall()

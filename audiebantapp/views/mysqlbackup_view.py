@@ -19,4 +19,5 @@ def mysqlbackuplist(req):
             return HttpResponseRedirect("/noright/")
         else:
             datalist = MysqlBackup.mysqlbackuplist(nUserRole, nRightUserid)
+            print datalist
             return render_to_response('mysqlbackup/mysql-backuplist.html', {'data': datalist})

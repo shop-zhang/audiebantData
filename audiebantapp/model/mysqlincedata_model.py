@@ -287,9 +287,7 @@ class MysqlIncedata(object):
 
             checkSql = 'insert into sql_check_task_info(task_id,check_id,check_stage,err_level,stage_status,error_messge,check_sql,affected_row) values (%s,%s,%s,%s,%s,%s,%s,%s)'
             cursor = connection.cursor()
-            cursor.execute(checkSql,
-                           [taskid, nCheckid, nCheckstage, nErrlevel, nStagestatus, nErrormessage, nChecksql,
-                            nAffectedrows])
+            cursor.execute(checkSql,[taskid, nCheckid, nCheckstage, nErrlevel, nStagestatus, nErrormessage, nChecksql,nAffectedrows])
             cursor.close()
             connection.commit()
             connection.close()

@@ -77,6 +77,7 @@ urlpatterns = [
     url(r'^mysqlsql/sqlexecnoince$', mysqlincedata_view.sqlexecnoince, name='sqlexecnoince'),
     url(r'^mysqlsql/sqltaskdelete$', mysqlincedata_view.sqltaskdelete, name='sqltaskdelete'),
     url(r'^mysql/mysqlbackup', mysqlbackup_view.mysqlbackuplist, name='mysqlbackup'),
+    url(r'^mysqlsql/sqlresultselect', mysqlincedata_view.sqlresultselect, name='sqlresultselect'),
 
     url(r'^mysqlindex/sqlauditinglist/', mysqladvisor_view.sqlauditinglist, name='sqlauditinglist'),
     url(r'^mysqlindex/sqlauditingadd/', mysqladvisor_view.sqlauditingadd, name='sqlauditingadd'),

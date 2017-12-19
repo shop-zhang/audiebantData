@@ -187,3 +187,25 @@ def sqltaskdelete(req):
             nTaskid = req.GET['taskid']
             MysqlIncedata.sqltaskdelete(nTaskid)
             return HttpResponseRedirect("/mysql/tobeexecutemysqltask/")
+
+
+def sqlresultselect(req):
+    if not req.session.get("sess_userid", False):
+        return HttpResponseRedirect("/login/")
+    else:
+        nUrldata = req.path
+        nRightUserid = req.session["sess_userid"]
+        nHaveRight = Right.userrightcheck(nRightUserid, nUrldata)
+        if nHaveRight[0]["num"] == 0:
+            return HttpResponseRedirect("/noright/")
+        else:
+            if req.method == 'GET':
+                datalist = ''
+                return render_to_response('mysqlincedata/mysql-resultselect.html', {'data': datalist})
+            else:
+                nContentinfo = req.POST.get('contentinfo')
+                nSelectDate = req.POST.get('selecttime')
+                print nContentinfo,nSelectDate
+
+                datalist = MysqlIncedata.sqlresultselect(nContentinfo, nSelectDate)
+                return render_to_response('mysqlincedata/mysql-resultselect.html', {'data': datalist})

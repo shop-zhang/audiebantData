@@ -88,7 +88,6 @@ class Dbserver(object):
 
     @classmethod
     def rightupdate(self, nRightname, nAction, nStatus, nMenuid, nRightid):
-        print nRightname, nAction, nStatus, nMenuid, nRightid
         nsql = "update  menu_rights set rightsname=%s,action=%s,status=%s,menuid=%s,parentid=if((select parentid from menu_info where menuid=%s) is null,'',(select parentid from menu_info where menuid=%s)) where rightsid=%s "
         cursor = connection.cursor()
         cursor.execute(nsql, [nRightname, nAction, nStatus, nMenuid, nMenuid, nMenuid, nRightid])

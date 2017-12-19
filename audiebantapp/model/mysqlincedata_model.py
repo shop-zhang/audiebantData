@@ -11,12 +11,14 @@ reload(sys)
 
 class MysqlIncedata(object):
 
-    def __init__(self, nUserRole, nRightUserid, nDbid, nSqlcontent, nTaskid):
+    def __init__(self, nUserRole, nRightUserid, nDbid, nSqlcontent, nTaskid, nContentinfo, nSelectDate):
         self.nUserRole = nUserRole
         self.nRightUserid = nRightUserid
         self.nDbid = nDbid
         self.nSqlcontent = nSqlcontent
         self.nTaskid = nTaskid
+        self.nContentinfo = nContentinfo
+        self.nSelectDate = nSelectDate
 
     @classmethod
     def mysqllist(self, nUserRole, nRightUserid):
@@ -384,3 +386,27 @@ class MysqlIncedata(object):
         cursor.close()
         connection.commit()
         connection.close()
+
+    @classmethod
+    def sqlresultselect(self, nContentinfo, nSelectDate):
+
+        nsql = "select a.task_id,a.user_id,user_name,db_name,is_inception_use,a.submit_time,a.execute_time,left(sql_data,30) from sql_update_task_info a join user_info b on a.user_id=b.user_id join db_server_info c on a.db_id=c.db_id  where date(a.submit_time) = %s and a.sql_data like %s "
+        cursor = connection.cursor()
+        print nsql
+        cursor.execute(nsql, [nSelectDate, nContentinfo])
+        rows = cursor.fetchall()
+        print(rows)
+        cursor.close()
+        jsonData = []
+        for row in rows:
+            result = {}
+            result['taskid'] = rows[0]
+            result['userid'] = rows[1]
+            result['username'] = rows[2]
+            result['dbname'] = rows[3]
+            result['isinceptionuse'] = rows[4]
+            result['submittime'] = rows[5]
+            result['executetime'] = rows[6]
+            result['sqlcontent'] = rows[7]
+            jsonData.append(result)
+        return jsonData

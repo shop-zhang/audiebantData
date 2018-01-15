@@ -390,23 +390,25 @@ class MysqlIncedata(object):
     @classmethod
     def sqlresultselect(self, nContentinfo, nSelectDate):
 
-        nsql = "select a.task_id,a.user_id,user_name,db_name,is_inception_use,a.submit_time,a.execute_time,left(sql_data,30) from sql_update_task_info a join user_info b on a.user_id=b.user_id join db_server_info c on a.db_id=c.db_id  where date(a.submit_time) = %s and a.sql_data like %s "
+        datetypeform='%Y-%m-%d'
+        nContentstring="%"+nContentinfo+"%"
+        nsql = "select a.task_id,a.user_id,user_name,db_name,is_inception_use,date_format(a.submit_time,'%s'),date_format(a.execute_time,'%s'),left(sql_data,30) from sql_update_task_info a join user_info b on a.user_id=b.user_id join db_server_info c on a.db_id=c.db_id  where task_type=1 and date(a.submit_time) = '%s' and a.sql_data like '%s' " %(datetypeform, datetypeform, nSelectDate, nContentstring)
         cursor = connection.cursor()
         print nsql
-        cursor.execute(nsql, [nSelectDate, nContentinfo])
+        cursor.execute(nsql)
         rows = cursor.fetchall()
         print(rows)
         cursor.close()
         jsonData = []
         for row in rows:
             result = {}
-            result['taskid'] = rows[0]
-            result['userid'] = rows[1]
-            result['username'] = rows[2]
-            result['dbname'] = rows[3]
-            result['isinceptionuse'] = rows[4]
-            result['submittime'] = rows[5]
-            result['executetime'] = rows[6]
-            result['sqlcontent'] = rows[7]
+            result['taskid'] = row[0]
+            result['userid'] = row[1]
+            result['username'] = row[2]
+            result['dbname'] = row[3]
+            result['isinceptionuse'] = row[4]
+            result['submittime'] = row[5]
+            result['executetime'] = row[6]
+            result['sqlcontent'] = row[7]
             jsonData.append(result)
         return jsonData

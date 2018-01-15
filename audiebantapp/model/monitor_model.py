@@ -14,7 +14,7 @@ class Mmonitor(object):
 
     @classmethod
     def redislist(self):
-        nsql = "select a.db_id,b.db_name,redis_role,b.db_port,if(c.use_outer_inner=2,c.outer_net,c.inner_net),a.status,date_format(a.update_time,'%Y-%m-%d %H:%i:%s') from redis_status a left join db_server_info b on a.db_id=b.db_id left join server_info c on b.server_id=c.server_id order by a.update_time"
+        nsql = "select b.db_id,b.db_name,redis_role,b.db_port,if(c.use_outer_inner=2,c.outer_net,c.inner_net),if(a.status is null,0,a.status),date_format(if(a.update_time is null,'2001-01-01',a.update_time),'%Y-%m-%d %H:%i:%s') from redis_status a right join db_server_info b on a.db_id=b.db_id left join server_info c on b.server_id=c.server_id where db_type=2 order by a.update_time"
         cursor = connection.cursor()
         cursor.execute(nsql)
         rows = cursor.fetchall()
@@ -91,7 +91,7 @@ class Mmonitor(object):
 
     @classmethod
     def mysqllist(self):
-        nsql = "select a.db_id,b.db_name,redis_role,b.db_port,if(c.use_outer_inner=2,c.outer_net,c.inner_net),a.status,date_format(a.update_time,'%Y-%m-%d %H:%i:%s') from mysql_status a left join db_server_info b on a.db_id=b.db_id left join server_info c on b.server_id=c.server_id order by a.update_time"
+        nsql = "select b.db_id,b.db_name,db_server_type,b.db_port,if(c.use_outer_inner=2,c.outer_net,c.inner_net),if(a.status is null,0,a.status),date_format(if(a.update_time is null,'2001-01-01',a.update_time),'%Y-%m-%d %H:%i:%s') from mysql_status a right join db_server_info b on a.db_id=b.db_id left join server_info c on b.server_id=c.server_id where db_type=1 order by a.update_time"
         cursor = connection.cursor()
         cursor.execute(nsql)
         rows = cursor.fetchall()
@@ -101,10 +101,45 @@ class Mmonitor(object):
             result = {}
             result['dbid'] = row[0]
             result['dbname'] = row[1]
-            result['redisrole'] = row[2]
+            result['mysqlrole'] = row[2]
             result['dbport'] = row[3]
             result['hostip'] = row[4]
             result['status'] = row[5]
             result['updatetime'] = row[6]
             jsonData.append(result)
+        return jsonData
+
+    @classmethod
+    def mysqlinfo(self, nDbid):
+        nsqltime = "select max(create_time) from server_monitor_result"
+        cursor = connection.cursor()
+        cursor.execute(nsqltime)
+        ntimelist = cursor.fetchall()
+
+        ntime=ntimelist[0][0]
+        print ntime
+
+        nsql = "select a.db_id,b.db_name,db_server_type,b.db_port,a.status," \
+               "(select real_values from server_monitor_result a join server_monitor_prototype b on a.monitor_id=b.monitor_id where monitor_target_name='mysql_num_QPS' and a.create_time=left(%s,19))," \
+               "(select real_values from server_monitor_result a join server_monitor_prototype b on a.monitor_id=b.monitor_id where monitor_target_name='mysql_num_alldbspace' and a.create_time=left(%s,19))," \
+               "(select monitor_values from server_monitor_result a join server_monitor_prototype b on a.monitor_id=b.monitor_id where monitor_target_name='mysql_num_processlistnum' and a.create_time=left(%s,19))," \
+               "(select real_values from server_monitor_result a join server_monitor_prototype b on a.monitor_id=b.monitor_id where monitor_target_name='mysql_num_tps' and a.create_time=left(%s,19)) " \
+               " from mysql_status a right join db_server_info b on a.db_id=b.db_id where b.db_id=%s order by a.update_time"
+        cursor = connection.cursor()
+        cursor.execute(nsql, [ntime, ntime, ntime, ntime, nDbid])
+        row = cursor.fetchone()
+        cursor.close()
+        jsonData = []
+        result = {}
+        result['dbid'] = row[0]
+        result['dbname'] = row[1]
+        result['mysqlrole'] = row[2]
+        result['dbport'] = row[3]
+        result['status'] = row[4]
+        result['mysqlqps'] = row[5]
+        result['mysqlalldbspace'] = row[6]
+        result['mysqlprocesslistnum'] = row[7]
+        result['mysqltps'] = row[8]
+        jsonData.append(result)
+
         return jsonData

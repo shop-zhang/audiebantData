@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>redis图形状态-运维系统</title>
+	<title>MySQL图形状态-运维系统</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -72,7 +72,7 @@
 									<div class="metric">
 										<span class="icon"><i class="lnr lnr-location"></i></span>
 										<p>
-											<span class="number">{{ item.redisrole }}</span>
+											<span class="number">{% if item.mysqlrole == 1 %} Master {% else %} Salve {% endif %}</span>
 											<span class="title">Role</span>
 										</p>
 									</div>
@@ -81,8 +81,8 @@
 									<div class="metric">
 										<span class="icon"><i class="fa fa-shopping-bag"></i></span>
 										<p>
-											<span class="number">{{ item.rediskeys }}</span>
-											<span class="title">Total Keys</span>
+											<span class="number">{{ item.mysqlqps }}</span>
+											<span class="title">QPS</span>
 										</p>
 									</div>
 								</div>
@@ -90,8 +90,8 @@
 									<div class="metric">
 										<span class="icon"><i class="fa fa-eye"></i></span>
 										<p>
-											<span class="number">{{ item.usedmemory }}%</span>
-											<span class="title">MemoryUseRate</span>
+											<span class="number">{{ item.mysqlalldbspace }}M</span>
+											<span class="title">DB-Space</span>
 										</p>
 									</div>
 								</div>
@@ -99,34 +99,32 @@
 									<div class="metric">
 										<span class="icon"><i class="fa fa-bar-chart"></i></span>
 										<p>
-											<span class="number">{{ item.uptimeindays }}D</span>
-											<span class="title">Uptime</span>
+											<span class="number">{{ item.mysqlprocesslistnum }}</span>
+											<span class="title">Proceslist-num</span>
 										</p>
 									</div>
 								</div>
-                                <!--
                                 <div class="col-md-3">
 									<div class="metric">
 										<span class="icon"><i class="fa fa-pencil"></i></span>
 										<p>
-											<span class="number">{{ item.usedcpu }}</span>
-											<span class="title">Cpu use</span>
+											<span class="number">{{ item.mysqltps }}</span>
+											<span class="title">TPS</span>
 										</p>
 									</div>
 								</div>
-								-->
                                 {% endfor %}
 							</div>
                         </div>
                         <div class="span12">
 					        <div class="box">
-                                <form action="/monitorredis/redisgraphinfo" method="post" class="form-horizontal validate" onsubmit="return toVaild()">
+                                <form action="/monitorredis/mysqlgraphinfo" method="post" class="form-horizontal validate" onsubmit="return toVaild()">
                                     <div class="box-content submit">
                                         开始时间
                                         <td class="datep"><input class="datainp" id="begintime" name="begintime" type="text"  value="{{num5}}"/></td>
                                         结束时间
                                         <td class="datep"><input class="datainp" id="endtime"  name="endtime" type="text" value="{{num6}}" /></td>
-                                        Redis列表:
+                                        MySQL列表:
                                         <td class="datep">
                                             <select lass="datainp" id="dbid" name="dbid" type="text">
                                             {% for item in data %}

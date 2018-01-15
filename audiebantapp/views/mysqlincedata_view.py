@@ -207,5 +207,6 @@ def sqlresultselect(req):
                 nSelectDate = req.POST.get('selecttime')
                 print nContentinfo,nSelectDate
 
+
                 datalist = MysqlIncedata.sqlresultselect(nContentinfo, nSelectDate)
-                return render_to_response('mysqlincedata/mysql-resultselect.html', {'data': datalist})
+                return render_to_response('mysqlincedata/mysql-resultselect.html', {'data': datalist, 'num1':nSelectDate, 'num2':nContentinfo})

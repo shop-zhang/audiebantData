@@ -73,10 +73,10 @@
                                 <form action="/mysqlsql/sqlresultselect/" method="post" class="form-horizontal validate" onsubmit="return toVaild()">
                                     <div class="box-content submit">
                                         查询执行时间
-                                        <td class="datep"><input class="datainp" id="selecttime" name="selecttime" type="text"  value="{{num5}}"/></td>
+                                        &nbsp&nbsp&nbsp&nbsp<td class="datep"><input class="datainp" id="selecttime" name="selecttime" type="text"  value="{{num1}}"/></td>
                                         </br>
                                         sql内容
-                                        <td class="datep"><input class='form-control required:true' data-max="1000" rows='5' id="contentinfo"  name="contentinfo" type="text" value="{{num6}}" /></td>
+                                        &nbsp&nbsp&nbsp&nbsp<td class="datep"><input class='form-control required:true' data-max="1000" rows='5' id="contentinfo"  name="contentinfo" type="text" value="{{num2}}" /></td>
                                         &nbsp;&nbsp;&nbsp;
                                         <button class="btn btn-primary" >查询</button>
                                     </div>
@@ -95,8 +95,8 @@
 									<table class="table table-bordered" id="listpage">
 										<thead>
 											<tr>
-                                                <th>执行人</th>
-                                                <th>执行DB</th>
+                                                <th>申请执行人</th>
+                                                <th>申请执行DB</th>
                                                 <th>执行方式</th>
                                                 <th>提交时间</th>
 												<th>执行时间</th>
@@ -114,10 +114,12 @@
 										        {% elif item.isinceptionuse == 2 %}
                                                     <td>inception更新</td>
 										        {% endif %}
-                                                <td>{{item.submittime|date:"Y-m-d H:i:s"}}</td>
-                                                <td>{{item.executetime|date:"Y-m-d H:i:s"}}</td>
-                                                <td>{{item.affectedrow}}</td>
-                                                <td>{{item.submitdatetime}}</td>
+                                                <td>{{item.submittime}}</td>
+                                                <td>{{item.executetime}}</td>
+                                                <td>{{item.sqlcontent}}</td>
+                                                <td>
+                                                    <a href="/mysqlsql/sqlcontentinfo?taskid={{item.taskid}}" class='lnr lnr-book' title="查看sql内容" ></a>
+                                                </td>
 											</tr>
                                             {% endfor %}
 										</tbody>

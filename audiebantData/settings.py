@@ -73,7 +73,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'audiebantData.wsgi.application'
 
 CRONJOBS = [
-    ('*/1 * * * *', 'audiebantapp.model.cron.redis_monitor_job')
+    ('*/1 * * * *', 'audiebantapp.model.monitor_cron.redis_monitor_job'),
+    ('*/1 * * * *', 'audiebantapp.model.monitor_cron.mysql_monitor_job','>> /Users/zhangsp/GitHub/audiebantData/run.log')
 ]
 
 # Database

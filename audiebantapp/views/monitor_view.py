@@ -5,6 +5,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from audiebantapp.model.monitor_model import Mmonitor
+from audiebantapp.model.mysqlincedata_model import MysqlIncedata
 from audiebantapp.model.right_model import Right
 import datetime, time
 
@@ -62,7 +63,7 @@ def mysqlmonitorlist(req):
         if nHaveRight[0]["num"] == 0:
             return HttpResponseRedirect("/noright/")
         else:
-            datalist = Mmonitor.redislist()
+            datalist = Mmonitor.mysqllist()
             return render_to_response('monitor/mysql-monitor-list.html', {'data': datalist})
 
 def mysqlgraphinfo(req):
@@ -81,17 +82,31 @@ def mysqlgraphinfo(req):
                 nBegintime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time() - 24*60*60))
                 datalist = Mmonitor.mysqllist()
                 dataredisinfo = Mmonitor.mysqlinfo(nDbid)
-                datagrephviewmen = Mmonitor.datagrephviewmen(nDbid, nBegintime, nEndtime)
+                datamysqlqps = Mmonitor.mysqldatagrephqps(nDbid, nBegintime, nEndtime)
                 datagrephvieprocessllist= Mmonitor.datagrephvieprocessllist(nDbid, nBegintime, nEndtime)
 
-                return render_to_response('monitor/redis-graph-info.html', {'data': datalist, 'datas': dataredisinfo, 'num5': nBegintime, 'num6': nEndtime, 'datamen': datagrephviewmen, 'dataprocesslist': datagrephvieprocessllist})
+                return render_to_response('monitor/mysql-graph-info.html', {'data': datalist, 'datas': datamysqlqps, 'num5': nBegintime, 'num6': nEndtime, 'datamen': datagrephviewmen, 'dataprocesslist': datagrephvieprocessllist})
             else:
                 nDbid = req.POST.get('dbid')
                 nEndtime = req.POST.get('endtime')
                 nBegintime = req.POST.get('begintime')
-                datalist = Mmonitor.mysqllist()
-                dataredisinfo = Mmonitor.mysqlinfo(nDbid)
-                datagrephviewmen = Mmonitor.datagrephviewmen(nDbid, nBegintime, nEndtime)
+                datalist = MysqlIncedata.mysqllist()
+                datamysqlqps = MysqlIncedata.mysqlinfo(nDbid)
+                datagrephviewmen = Mmonitor.mysqldatagrephqps(nDbid, nBegintime, nEndtime)
                 datagrephvieprocessllist = Mmonitor.datagrephvieprocessllist(nDbid, nBegintime, nEndtime)
 
-                return render_to_response('monitor/redis-graph-info.html', {'data': datalist, 'datas': dataredisinfo, 'num5': nBegintime, 'num6': nEndtime, 'datamen': datagrephviewmen, 'dataprocesslist': datagrephvieprocessllist})
+                return render_to_response('monitor/mysql-graph-info.html', {'data': datalist, 'datas': datamysqlqps, 'num5': nBegintime, 'num6': nEndtime, 'datamen': datagrephviewmen, 'dataprocesslist': datagrephvieprocessllist})
+
+
+def mysqlqps(req):
+    if not req.session.get("sess_userid", False):
+        return HttpResponseRedirect("/login/")
+    else:
+        nUrldata = req.path
+        nRightUserid = req.session["sess_userid"]
+        nHaveRight = Right.userrightcheck(nRightUserid, nUrldata)
+        if nHaveRight[0]["num"] == 0:
+            return HttpResponseRedirect("/noright/")
+        else:
+            datalist = Mmonitor.mysqllist()
+            return render_to_response('monitor/mysql-monitor-list.html', {'data': datalist})
